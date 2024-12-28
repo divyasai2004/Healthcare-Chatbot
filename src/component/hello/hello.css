@@ -1,0 +1,19 @@
+.hello{
+    color: rgb(94, 94, 93);
+    margin-left: 500px;
+    font-size: 50px;
+    margin-top: 50px;
+
+}
+
+.gradientHello{
+    font-size: 50px;
+    font-weight: bold;
+    background: linear-gradient(90deg, #3498db 0%, #e91e63 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    display: inline-block;
+    background-size: 100%;
+}

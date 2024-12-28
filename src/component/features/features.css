@@ -1,0 +1,88 @@
+.features{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    color: white;
+    gap: 30px;
+    font-size: 10px;
+    font-weight: lighter;
+    font: sans-serif;
+    
+    
+}
+
+.feature1{
+    background-color: rgb(37, 37, 36);
+    /* filter: drop-shadow(5px 5px 10px rgba(52, 152, 219, 0.4)) 
+          drop-shadow(-5px -5px 10px rgba(233, 30, 99, 0.4)); */
+    
+    
+    /* box-shadow: 
+    0 0 15px #3498db ; */
+    
+    border-radius: 5%;
+    width: 180px;
+    height: 180px;
+    padding: 10px;
+}
+
+.feature2{
+    background-color: rgb(37, 37, 36);
+
+    /* filter: drop-shadow(5px 5px 10px rgba(52, 152, 219, 0.4)) 
+          drop-shadow(-5px -5px 10px rgba(233, 30, 99, 0.4)); */
+ 
+    border-radius: 5%;
+    width: 180px;
+    height: 180px;
+    padding: 10px;
+}
+
+.feature3{
+    background-color: rgb(37, 37, 36);
+    /* filter: drop-shadow(5px 5px 10px rgba(52, 152, 219, 0.4)) 
+          drop-shadow(-5px -5px 10px rgba(233, 30, 99, 0.4)); */
+    border-radius: 5%;
+    width: 180px;
+    height: 180px;
+    padding: 10px;
+}
+
+.feature4{
+    background-color: rgb(37, 37, 36);
+    /* filter: drop-shadow(5px 5px 10px rgba(52, 152, 219, 0.4)) 
+          drop-shadow(-5px -5px 10px rgba(233, 30, 99, 0.4)); */
+      /* Blue shadow */
+   
+    border-radius: 5%;
+    width: 180px;
+    height: 180px;
+    padding: 10px;
+}
+
+
+.feature1:hover{
+    background-color: rgb(53, 53, 53);   
+    filter: drop-shadow(5px 5px 10px rgba(52, 152, 219, 0.6)) 
+          drop-shadow(-5px -5px 10px rgba(233, 30, 99, 0.6));
+}
+
+.feature2:hover{
+    background-color: rgb(53, 53, 53);  
+    filter: drop-shadow(5px 5px 10px rgba(52, 152, 219, 0.6)) 
+    drop-shadow(-5px -5px 10px rgba(233, 30, 99, 0.6)); 
+}
+
+.feature3:hover{
+    background-color: rgb(53, 53, 53);   
+    filter: drop-shadow(5px 5px 10px rgba(52, 152, 219, 0.6)) 
+    drop-shadow(-5px -5px 10px rgba(233, 30, 99, 0.6));
+}
+
+.feature4:hover{
+    background-color: rgb(53, 53, 53);  
+    filter: drop-shadow(5px 5px 10px rgba(52, 152, 219, 0.6)) 
+    drop-shadow(-5px -5px 10px rgba(233, 30, 99, 0.6)); 
+}

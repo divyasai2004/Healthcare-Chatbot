@@ -1,0 +1,75 @@
+.container{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.tabs{
+    display: flex;
+    position: relative;
+    background-color: rgb(49, 49, 49);
+    padding: 0.75rem;
+    box-shadow: red;
+    border-radius: 99px;
+    color: white;
+}
+
+.tabs * {
+    z-index: 2;
+}
+
+input[type="radio"]{
+    display: none;
+}
+
+.tab{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+    width: 200px;
+    font-size: 1.25rem;
+    font-weight: 400;
+    border-radius: 99px;
+    cursor: pointer;
+    transition: color 0.15s ease-in;
+}
+
+input[type="radio"]:checked + label{
+    color: white;
+  
+}
+
+input[id = "radio-1"]:checked ~ .glider{
+    transform: translateX(0);
+}
+
+input[id = "radio-2"]:checked ~ .glider{
+    transform: translateX(100%);
+}
+
+input[id = "radio-3"]:checked ~ .glider{
+    transform: translateX(200%);
+}
+
+.glider{
+    position: absolute;
+    display: flex;
+    height: 35px;
+    width: 200px;
+    color: white;
+    z-index: 1;
+    background: linear-gradient(90deg, #3498db 0%, #e91e63 100%);
+    border-radius: 99px;
+    transition: 0.25s ease-OUT;
+}
+
+@media screen and (max-width: 700px) {
+
+    .tabs{
+        transform: scale(0.6);
+    }
+    
+}

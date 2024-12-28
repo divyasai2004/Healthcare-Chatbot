@@ -1,0 +1,15 @@
+.headers{
+    width: 100%;
+    height: 50px; 
+    color: white;
+    display: flex;
+    
+    
+}
+
+.name{
+    padding-left: 50px;
+    font: 1em sans-serif;
+    font-size: 30px;
+    font-weight: 100;
+}

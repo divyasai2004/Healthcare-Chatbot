@@ -1,0 +1,21 @@
+.gridcontainer{
+    display: inline-grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 20px;
+    column-gap: 100px;
+    
+}
+
+.fitbit{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    flex-direction: column;
+    gap: 50px;
+}
+
+.gridItem{
+    width: fit-content;
+}

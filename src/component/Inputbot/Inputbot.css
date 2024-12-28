@@ -1,0 +1,38 @@
+.input{
+    width: 700px;
+    height: 60px;
+    border-radius: 99px;
+    background-color: rgb(37, 37, 36);
+    border: none;
+    margin-top: 100px;
+    padding-left: 25px;
+    margin-right: 20px;
+    color: white;
+    filter: drop-shadow(5px 5px 10px rgba(52, 152, 219, 0.4)) 
+    drop-shadow(-5px -5px 10px rgba(233, 30, 99, 0.4));
+
+    
+  
+}
+
+.input:focus{
+    outline: none;
+    border: none;
+    filter: drop-shadow(5px 5px 10px rgba(52, 152, 219, 0.6)) 
+    drop-shadow(-5px -5px 10px rgba(233, 30, 99, 0.6));
+
+}
+
+
+
+
+.inputdiv{
+    display: inline;
+    /* background-color: rgba(233, 30, 99, 0.4); */
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    
+}

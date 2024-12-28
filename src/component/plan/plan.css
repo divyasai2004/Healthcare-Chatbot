@@ -1,0 +1,16 @@
+.plan{
+    background: linear-gradient(to right, #3498db, #e91e63);
+    color: white;
+    width: 100px;
+    height: 40px;
+    border-radius: 25px;
+    margin-left: 1000px;
+    margin-top: 15px;
+
+
+}
+
+.planButton{
+    /* display: inline; */
+
+}
