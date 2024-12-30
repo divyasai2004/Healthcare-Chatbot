@@ -1,9 +1,16 @@
 .appointment{
     color: white;
-    display:inline-flex;
+    /* display:inline-flex; */
     flex-direction: column;
-    
     margin-top: 10px;
+
+    display: flex;
+    align-items: center; /* Horizontally center */
+    justify-content: center; /* Vertically center */
+    height: 100vh; /* Full viewport height */
+    margin: 0; /* Remove any default margin */
+    
+
     
 }
 
@@ -17,6 +24,21 @@
 .timeslot{
     border-radius: 25px;
     padding: 10px;
+}
+
+
+.timeslot:focus {
+    outline: none;
+    border: 2px solid #e4eaee;
+    
+}
+
+.timeslot::-webkit-calendar-picker-indicator {
+    background-color: #3498db;
+    color: white;
+    border-radius: 50%;
+    padding: 5px;
+    cursor: pointer;
 }
 
 .dropdown-btn {
@@ -69,4 +91,48 @@
 .doctor{
     border-radius: 25px;
     padding: 10px ;
+}
+
+
+/* Styling for the Show Nearby Doctors Button */
+.show-nearby-btn {
+    background: linear-gradient(135deg, #3498db, #8e44ad);  /* Gradient background */
+    color: white;
+    font-size: 18px;
+    padding: 15px 30px;
+    border-radius: 50px;  /* Rounded corners */
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;  /* Capitalize text */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);  /* Subtle shadow for depth */
+    transition: all 0.3s ease;  /* Smooth transition for hover effects */
+    width: 100%;  /* Full width */
+    max-width: 250px;  /* Limit the maximum width */
+    text-align: center;
+    font-weight: bold;
+    margin-top: 20px;  /* Adds space above the button */
+}
+
+/* Hover effect for the button */
+.show-nearby-btn:hover {
+    background: linear-gradient(135deg, #8e44ad, #3498db);  /* Reverse the gradient */
+    transform: translateY(-3px);  /* Slight lift effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);  /* Deeper shadow */
+}
+
+/* Focus effect for accessibility */
+.show-nearby-btn:focus {
+    outline: none;
+    border: 2px solid #fbfbfb;  /* Focus border color */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .show-nearby-btn {
+        width: 80%;  /* Adjust width for smaller screens */
+    }
+}
+
+.timeslot-container {
+    margin-bottom: 30px;  /* Adds space between the timeslot and the next section */
 }

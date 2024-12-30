@@ -13,6 +13,7 @@ import Login from './pages/login/Login';
 // import Card from './component/card/Card';
 import Fitbit from './pages/fitbit/Fitbit';
 import Appointment from './pages/appointment/Appointment';
+import Chatbot from './pages/chatbot/Chatbot';
 
 import './App.css';
 
@@ -32,8 +33,8 @@ const App = () =>  {
       <Features/>
       <Inputbot/> */}
 
-      {/* <Register/> */}
-      {/* <Login /> */}
+      <Register/>
+      <Login />
 
       
 
@@ -44,11 +45,10 @@ const App = () =>  {
       {/* <Login></Login> */}
       {/* <Card title="Steps count"/> */}
 
-      <Fitbit/>
+      {/* <Fitbit/> */}
 
       {/* <Appointment/> */}
-
-
+      {/* <Chatbot/> */}
      
 
 

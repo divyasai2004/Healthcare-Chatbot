@@ -31,11 +31,14 @@ const Appointment = () => {
 
 
             <div>
+                <h1 classname="timeslot-container"></h1>
                 <h1 className='fields'>Timeslot: </h1>
                 <input className="timeslot" type="datetime-local" />
             </div>
+            
 
-            <Button text="show nearby doctors"/>
+            {/* <Button text="show nearby doctors"/> */}
+            <button class="show-nearby-btn">Show nearby doctors</button>
         </div>
         );
 }

@@ -5,7 +5,7 @@
     justify-content: center;
     align-items: center;
 
-    padding: 5px;
+    padding: 9px;
 
     background-color: rgb(0, 0, 0);
     border: solid rgb(116, 44, 198) 1px;
@@ -83,7 +83,7 @@ input[type="radio"] {
     left: 3.25px;
   }
 
-  .registerButton{
+  /* .registerButton{
     background-color: rgb(148, 13, 210);
     color: black;
     border: solid green 1px;
@@ -93,8 +93,25 @@ input[type="radio"] {
     cursor: pointer;
     font-weight: 500;
     font-size: 20px;
-  }
+  } */
 
+  .registerButton {
+    width: 100%;
+    padding: 0.8rem;
+    background: linear-gradient(to right, #ff007f, #007bff);
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  .registerButton:hover {
+    background: linear-gradient(to right, #007bff, #ff007f);
+  }
+  
  
 
   .secretInput{

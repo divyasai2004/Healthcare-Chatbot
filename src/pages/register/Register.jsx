@@ -1,6 +1,8 @@
 import { useRef } from 'react';
 import './register.css';
-
+import facebookLogo from '../../pages/login/facebook-logo.png';
+import googleLogo from '../../pages/login/google-logo.png';
+import twitterLogo from '../../pages/login/twitter-logo.png';
 
 // function randomText(){
   
@@ -91,6 +93,22 @@ const Register = () =>{
 
                     <button className='registerButton'>Register</button>     
                 </form>
+
+                <div className="social-login">
+                                    <p>Or signup with</p>
+                                    <div className="social-buttons">
+                                    <button className="social-btn facebook">
+                                    <img src={facebookLogo} alt="Facebook Logo" className="social-logo" />
+                          </button>
+                          <button className="social-btn twitter">
+                          <img src={twitterLogo} alt="Twitter Logo" className="social-logo" />
+                          </button>
+                          <button className="social-btn google">
+                          <img src={googleLogo} alt="Google Logo" className="social-logo" />
+                
+                          </button>
+                          </div>
+                                 </div>
             </div>
 
             <div className='secret'>

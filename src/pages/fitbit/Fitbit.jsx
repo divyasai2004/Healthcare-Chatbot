@@ -25,7 +25,9 @@ const Fitbit = () => {
             <Card title="Steps count"/>
             </div>   
         </div>
-        <Button text = "download your report" />
+        <div className='button'>
+        <Button text = "Download Your Report" />
+        </div>
         </div>
     );
 }
