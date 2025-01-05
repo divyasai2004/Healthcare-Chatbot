@@ -12,7 +12,7 @@
     color: rgb(254, 253, 255);
 
     width: 400px;
-    height: 600px;
+    height: 580px;
     border-radius: 30px;
 
     margin-right: auto;
@@ -51,7 +51,7 @@ label{
     width: 50px;
 }
 
-input[type="radio"] {
+/* input[type="radio"] {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -69,9 +69,9 @@ input[type="radio"] {
   input[type="radio"]:checked {
     background-color: #040404; 
   }
+   */
   
-  
-  input[type="radio"]:checked::before {
+  /* input[type="radio"]:checked::before {
     content: "";
     display: block;
     width: 10px;
@@ -81,7 +81,7 @@ input[type="radio"] {
     position: absolute;
     top: 3.25px;
     left: 3.25px;
-  }
+  } */
 
   /* .registerButton{
     background-color: rgb(148, 13, 210);

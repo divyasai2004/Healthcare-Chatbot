@@ -1,4 +1,4 @@
-.container{
+.container_reg{
 
     display: flex;
     flex-direction: column;
@@ -12,7 +12,7 @@
     color: rgb(254, 253, 255);
 
     width: 400px;
-    height: 600px;
+    height: 700px;
     border-radius: 30px;
 
     margin-right: auto;
@@ -20,7 +20,7 @@
     margin-top: 10vh;
 }
 
-.form-container{
+.form-container_reg{
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -33,7 +33,7 @@ input{
 
     border-radius: 25px;
     width: 300px;
-    height: 40px;
+    height: 25px;
     padding-left: 10px;
 }
 
@@ -51,23 +51,36 @@ label{
     width: 50px;
 }
 
+
+.gender{
+  display: flex;
+  flex-direction: row;
+  align-items:center;
+  gap: 10px;
+  
+}
+
 input[type="radio"] {
-    appearance: none;
+    /* appearance: none;
     -webkit-appearance: none;
-    -moz-appearance: none;
+    -moz-appearance: none; */
+    all: unset;
     width: 20px;
     height: 20px;
-    border: 2px solid rgb(128, 0, 117);
+    border: 2px solid rgb(88, 14, 162);
     border-radius: 50%;
     display: inline-block;
     position: relative;
     cursor: pointer;
-    margin-right: 2px;
+    background-color: transparent;
+    margin-right: 2px; 
   }
   
  
   input[type="radio"]:checked {
     background-color: #040404; 
+    border-color:  rgb(118, 64, 218);
+    
   }
   
   
@@ -76,12 +89,18 @@ input[type="radio"] {
     display: block;
     width: 10px;
     height: 10px;
-    background-color: rgb(107, 0, 128);
+    background-color: rgb(124, 18, 200);
     border-radius: 50%;
     position: absolute;
-    top: 3.25px;
-    left: 3.25px;
+    top: 50%; /*3.25px*/
+    left: 50%; /*3.25px*/
+    transform: translate(-50%, -50%); /* Align to the center */
   }
+
+  .gender label {
+    color: white; /* Adjust label color for visibility on a dark background */
+    font-size: 16px;
+}
 
   /* .registerButton{
     background-color: rgb(148, 13, 210);
@@ -123,15 +142,6 @@ input[type="radio"] {
     
    }
 
- 
-
-
-
-  .gender{
-    display: flex;
-    flex-direction: row;
-    align-items:end;
-  }
 
   input:hover{
     border: solid rgb(178, 7, 204) 1px;

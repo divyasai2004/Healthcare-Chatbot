@@ -1,0 +1,112 @@
+/* Overall Page Styling */
+/* body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to right, #f8f9fa, #e9ecef);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+} */
+
+/* Heading Styling */
+/* h2 {
+  text-align: center;
+  color: #333;
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+} */
+
+/* Form Container */
+/* div {
+  background: white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  padding: 40px;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 100%;
+  animation: fadeIn 1s ease-in-out;
+} */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Input Fields */
+input[type='text'], textarea {
+  padding: 15px;
+  margin: 15px 0;
+  border: 1px solid #d752d7;
+  border-radius: 10px;
+  font-size: 1rem;
+  background: #f8f9fa;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+input[type='text']:focus, textarea:focus {
+  border-color: #007bff;
+  outline: none;
+  background: transparent;
+  box-shadow: 0 0 10px rgb(27, 153, 221);
+}
+
+/* Submit Button */
+button {
+  padding: 15px 20px;
+  background: linear-gradient(to right, #70cce5, #2f5590, #110e65);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+button:hover {
+  /* background-color: #1e7e34; */
+  transform: scale(1.05);
+}
+
+/* Placeholder Text Style */
+input::placeholder, textarea::placeholder {
+  color: #6c757d;
+  font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  div {
+    padding: 20px;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  inputdata[type='text'], textarea {
+    padding: 12px;
+    font-size: 0.9rem;
+  }
+
+  button {
+    padding: 12px;
+    font-size: 0.9rem;
+  }
+}

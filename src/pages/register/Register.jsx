@@ -57,9 +57,9 @@ const Register = () =>{
       
     return(
         <div>
-            <div className="container">
+            <div className="container_reg">
 
-                <form className='form-container'>
+                <form className='form-container_reg'>
                     <div>
                     <label for = "username">Username: </label>
                     <input type="text" id="username" name="username" ></input>

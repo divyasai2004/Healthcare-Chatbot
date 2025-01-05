@@ -1,7 +1,8 @@
 import './Appointment.css';
 import Button from '../../component/button/Button';
 import { useState } from 'react';
-
+import SlidingButton from '../../component/slidingbutton/Slide';
+import Header from '../../container/header/Header';
 
 
 const Appointment = () => {
@@ -15,6 +16,8 @@ const Appointment = () => {
 
     return(
         <div className="appointment">
+             {/* <Header/> */}
+             {/* <SlidingButton/>  */}
 
             <div className='doctorbox'>
                 <h1 className='fields'>Doctor: </h1>
@@ -40,6 +43,7 @@ const Appointment = () => {
             {/* <Button text="show nearby doctors"/> */}
             <button class="show-nearby-btn">Show nearby doctors</button>
         </div>
+
         );
 }
 

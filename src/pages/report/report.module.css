@@ -1,0 +1,104 @@
+/* Container Styles */
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Header Styles */
+.header {
+  text-align: center;
+  padding: 20px;
+  border-bottom: 1px solid #333;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 2.5rem;
+  background: linear-gradient(90deg, #ff007c, #007cff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-text 3s infinite;
+}
+
+/* Main Section */
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 800px;
+}
+
+/* Report Card Styles */
+.reportCard {
+  background: linear-gradient(145deg, #043156, #262626);
+  color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(4, 4, 75, 0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.reportCard:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.8);
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #007cff;
+}
+
+.cardContent {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: #bbbbbb;
+}
+
+/* Button Styles */
+.button {
+  font-size: 1rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.downloadButton {
+  background: linear-gradient(90deg, #0800ff, #b919e6);
+  color: #ffffff;
+}
+
+.downloadButton:hover {
+  background: linear-gradient(90deg, #b919e6, #1c07c0);
+  transform: translateY(-3px);
+}
+
+.viewDetailsButton {
+  background: linear-gradient(90deg, #007cff, #00c6ff);
+  color: #ffffff;
+}
+
+.viewDetailsButton:hover {
+  background: linear-gradient(90deg, #00c6ff, #007cff);
+  transform: translateY(-3px);
+}
+
+/* Animations */
+@keyframes gradient-text {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

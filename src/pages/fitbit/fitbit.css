@@ -32,6 +32,7 @@
     box-shadow: 0 4px 6px rgba(255, 105, 180, 0.4); /* Light shadow for depth */
     cursor: pointer; /* Pointer cursor on hover */
     transition: all 0.3s ease; /* Smooth transition */
+    
   }
   
 .button:hover {

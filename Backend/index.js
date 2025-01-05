@@ -7,6 +7,9 @@ const bodyParser= require('body-parser');
 const cors = require('cors');
 const axios = require('axios');
 
+const Testimonial = require('./testimonial');
+
+
 app.use(express.json());
 app.use(cors()); 
 app.use(bodyParser.json());
@@ -79,4 +82,41 @@ app.post('/', async(req, res) => {
 // Start the server
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);   
+});
+
+//Testimonals
+app.get('/testimonials', async (req, res) => {
+  try {
+    const testimonials = await Testimonial.find();
+    res.json(testimonials);
+  } catch (error) {
+    console.error('Error fetching testimonials:', error);
+    res.status(500).send('Error fetching testimonials');
+  }
+});
+
+//Add a New Testimonial
+app.post('/testimonials', async (req, res) => {
+  const { name, feedback, image } = req.body;
+
+  const newTestimonial = new Testimonial({ name, feedback, image });
+
+  try {
+    await newTestimonial.save();
+    res.status(201).send('Testimonial added successfully');
+  } catch (error) {
+    console.error('Error adding testimonial:', error);
+    res.status(500).send('Error adding testimonial');
+  }
+});
+
+//Delete a Testimonial
+app.delete('/testimonials/:id', async (req, res) => {
+  try {
+    await Testimonial.findByIdAndDelete(req.params.id);
+    res.send('Testimonial deleted successfully');
+  } catch (error) {
+    console.error('Error deleting testimonial:', error);
+    res.status(500).send('Error deleting testimonial');
+  }
 });
