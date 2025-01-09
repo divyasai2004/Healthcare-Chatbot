@@ -1,0 +1,38 @@
+.user-dashboard {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .user-dashboard h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+  }
+  
+  .user-dashboard p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+  }
+  
+  .userdashboard-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Adds spacing between the links */
+    flex-wrap: wrap; /* Makes it responsive */
+    margin-top: 20px;
+  }
+  
+  .userdashboard-links a {
+    text-decoration: none;
+    color: #8AB4F8; /* Light blue for links */
+    font-size: 1.1em;
+    padding: 10px 20px;
+    border: 2px solid #084bb6;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .userdashboard-links a:hover {
+    background-color: #5ac6db;
+    color: #121212;
+  }
+  

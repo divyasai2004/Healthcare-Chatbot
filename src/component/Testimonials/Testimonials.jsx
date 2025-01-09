@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-
+import './Testimonials.css'; // Assuming you save the styles in this file.
 
 const Testimonials = () => {
   const [testimonials, setTestimonials] = useState([]);
@@ -19,14 +19,20 @@ const Testimonials = () => {
   }, []);
 
   return (
-    <div>
-      <h2>What Our Users Say</h2>
-      <div>
+    <div className="testimonials-container">
+      <h2 className="testimonials-heading">What Our Users Say</h2>
+      <div className="testimonials-list">
         {testimonials.map((testimonial) => (
-          <div key={testimonial._id}>
-            <h3>{testimonial.name}</h3>
-            <p>{testimonial.feedback}</p>
-            {testimonial.image && <img src={testimonial.image} alt={testimonial.name} />}
+          <div className="testimonial-item fade-in" key={testimonial._id}>
+            <h3 className="testimonial-name">{testimonial.name}</h3>
+            <p className="testimonial-feedback">{testimonial.feedback}</p>
+            {testimonial.image && (
+              <img
+                className="testimonial-image"
+                src={testimonial.image}
+                alt={testimonial.name}
+              />
+            )}
           </div>
         ))}
       </div>
