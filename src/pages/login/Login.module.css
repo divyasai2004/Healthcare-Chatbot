@@ -1,0 +1,72 @@
+.loginWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  background-color: rgb(0, 0, 0);
+  border: solid rgb(116, 44, 198) 1px;
+  color: rgb(254, 253, 255);
+  width: 400px;
+  height: 600px;
+  border-radius: 30px;
+  margin-top: 10vh;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.formContainer input {
+  background-color: black;
+  border: solid rgb(173, 24, 210) 1px;
+  color: white;
+  border-radius: 25px;
+  width: 300px;
+  height: 40px;
+  padding-left: 10px;
+}
+
+.formContainer label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.loginButton {
+  background-color: rgb(148, 13, 210);
+  color: rgb(225, 30, 30);
+  border: solid green 1px;
+  border-radius: 25px;
+  width: 300px;
+  height: 40px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.secret {
+  position: relative;
+  width: 100%;
+}
+
+.secretInput {
+  position: absolute;
+  right: 0;
+  border: none;
+}
+
+.formContainer input:hover {
+  border: solid rgb(178, 7, 204) 1px;
+}
+
+.loginButton:hover {
+  background-color: rgb(181, 7, 204);
+}
