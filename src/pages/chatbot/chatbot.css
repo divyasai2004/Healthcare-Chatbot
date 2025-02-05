@@ -61,6 +61,8 @@
   border-top: 1px solid #eee;
   /* background: rgba(0, 0, 0, 0.5); */
   background: transparent;
+  /* background: red; */
+  /* height: 60px; */
 }
 
 input {
@@ -159,3 +161,4 @@ button:hover {
   overflow-y: auto;
   height: calc(100% - 100px); /* Adjust for button and header */
 }
+

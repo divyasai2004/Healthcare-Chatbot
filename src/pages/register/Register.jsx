@@ -60,55 +60,56 @@ const Register = () =>{
             <div className="container_reg">
 
                 <form className='form-container_reg'>
-                    <div>
-                    <label for = "username">Username: </label>
-                    <input type="text" id="username" name="username" ></input>
-                    </div>
 
-                    <div>
+                <div>
                     <label for = "email">Email: </label>
                     <input type="email" id="email" name="email" ></input>
-                    </div>
+                </div>
 
-                    <div>
+                 <div>
+                    <label for = "username">Username: </label>
+                    <input type="text" id="username" name="username" ></input>
+                 </div>
+
+                 <div>
                     <label for = "password">Password: </label>
                     <input type="password" id="password" name="password" ></input>
-                    </div>
+                 </div>
 
-                    <div>
+                <div>
                     <label for = "age" className='specialLabel'>Age: </label>
                     <input type="number" id="age" name="age" className='specialInput' ></input>
-                    </div>
+                </div>
 
-                    <div>
+                <div>
                     <label for = "gender">Gender: </label>
 
-                    <div className='gender'>
+                <div className='gender'>
                     <input type="radio" id="gender" name="gender" ></input>
                     <span className='male'>Male</span>
                     <input type="radio" id="gender" name="gender" ></input>  
                     <span>Female</span>
-                    </div>
+                </div>
                     </div>
 
                     <button className='registerButton'>Register</button>     
                 </form>
 
                 <div className="social-login">
-                                    <p>Or signup with</p>
-                                    <div className="social-buttons">
-                                    <button className="social-btn facebook">
-                                    <img src={facebookLogo} alt="Facebook Logo" className="social-logo" />
-                          </button>
-                          <button className="social-btn twitter">
-                          <img src={twitterLogo} alt="Twitter Logo" className="social-logo" />
-                          </button>
-                          <button className="social-btn google">
-                          <img src={googleLogo} alt="Google Logo" className="social-logo" />
+                    <p>Or signup with</p>
+                        <div className="social-buttons">
+                             <button className="social-btn facebook">
+                                 <img src={facebookLogo} alt="Facebook Logo" className="social-logo" />
+                             </button>
+                             <button className="social-btn twitter">
+                                <img src={twitterLogo} alt="Twitter Logo" className="social-logo" />
+                             </button>
+                            <button className="social-btn google">
+                                <img src={googleLogo} alt="Google Logo" className="social-logo" />
                 
-                          </button>
-                          </div>
-                                 </div>
+                             </button>
+                        </div>
+                   </div>
             </div>
 
             <div className='secret'>

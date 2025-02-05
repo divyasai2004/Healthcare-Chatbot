@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./report.module.css"; // Import CSS Module
+// import Slide from '../../component/slidingbutton/Slide';
 
 const Report = () => {
   return (
@@ -8,7 +9,7 @@ const Report = () => {
       <header className={styles.header}>
         <h1 className={styles.title}>Healthcare Chatbot Reports</h1>
       </header>
-
+      {/* <Slide/>  */}
       {/* Main Content Section */}
       <main className={styles.main}>
         {/* Report Card 1 */}
