@@ -34,7 +34,15 @@ const Chatbot = () => {
                 throw new Error("Invalid response format from API");
             }
 
-            const botMessage = { sender: 'bot', text: data.response };
+            const beautifyResponse = (text) => {
+                return text
+                    .replace(/## (.*?)(\n|$)/g, "<h3>$1</h3>")  // Convert ## Headings
+                    .replace(/\* (.*?)(\n|$)/g, "<li>$1</li>")  // Convert * Bullets to <li>
+                    .replace(/\n/g, "<br>");  // Convert newlines
+            };
+
+            const formattedResponse = beautifyResponse(data.response);
+            const botMessage = { sender: 'bot', text: formattedResponse };
             setMessages((prevMessages) => [...prevMessages, botMessage]);
 
         } catch (error) {
@@ -77,9 +85,7 @@ const Chatbot = () => {
                     <SparkleOverlay />
                     <div className="messages">
                         {messages.map((message, index) => (
-                            <div key={index} className={`message ${message.sender}`}>
-                                {message.text}
-                            </div>
+                            <div key={index} className={`message ${message.sender}`} dangerouslySetInnerHTML={{ __html: message.text }}></div>
                         ))}
                     </div>
 

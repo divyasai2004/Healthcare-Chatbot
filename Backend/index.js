@@ -1,8 +1,7 @@
 const User = require('./user');
 const express = require('express');
 const mongoose = require('mongoose');
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY); // Corrected initialization
-require('dotenv').config();
+const stripe = require('stripe')('AIzaSyB2XHl4cfznKR0gySXPUp2n6WD6Yz5rWJc'); // Corrected initialization
 const app = express();
 const port = process.env.PORT || 3100;
 const bodyParser = require('body-parser');
@@ -18,7 +17,7 @@ app.use(express.json());
 app.use(cors());
 app.use(bodyParser.json());
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/mydatabase", { 
+mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://wahidzk0091:zaynab1234@cluster0.rsdtw.mongodb.net/", { 
     useNewUrlParser: true,
     useUnifiedTopology: true,
 }).then(() => {

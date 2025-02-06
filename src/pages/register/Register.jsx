@@ -1,8 +1,93 @@
-import { useRef } from 'react';
+import { useState } from 'react';
 import './register.css';
 import facebookLogo from '../../pages/login/facebook-logo.png';
 import googleLogo from '../../pages/login/google-logo.png';
 import twitterLogo from '../../pages/login/twitter-logo.png';
+
+const Register = () => {
+    const [gender, setGender] = useState('');  // State for Gender
+
+    return (
+        <div>
+            <div className="container_reg">
+                <form className='form-container_reg'>
+
+                    {/* Email Field */}
+                    <div>
+                        <label htmlFor="email">Email: </label>
+                        <input type="email" id="email" name="email" required />
+                    </div>
+
+                    {/* Username Field */}
+                    <div>
+                        <label htmlFor="username">Username: </label>
+                        <input type="text" id="username" name="username" required />
+                    </div>
+
+                    {/* Password Field */}
+                    <div>
+                        <label htmlFor="password">Password: </label>
+                        <input type="password" id="password" name="password" required />
+                    </div>
+
+                    {/* Age Field */}
+                    <div>
+                        <label htmlFor="age" className='specialLabel'>Age: </label>
+                        <input type="text" id="age" name="age" className='specialInput' required />
+                    </div>
+
+                    {/* Gender Field as Toggle Buttons */}
+                    <div>
+                        <label>Gender: </label>
+                        <div className='gender'>
+                            <button
+                                type="button"
+                                className={`gender-btn ${gender === "male" ? "active" : ""}`}
+                                onClick={() => setGender("male")}
+                            >
+                                Male
+                            </button>
+                            <button
+                                type="button"
+                                className={`gender-btn ${gender === "female" ? "active" : ""}`}
+                                onClick={() => setGender("female")}
+                            >
+                                Female
+                            </button>
+                        </div>
+                    </div>
+
+                    {/* Register Button */}
+                    {/* <button className='registerButton'>Register</button>      */}
+                    <button type="submit" className='registerButton'>Register</button>     
+                </form>
+
+                {/* Social Media Login */}
+                <div className="social-login">
+                    <p>Or signup with</p>
+                    <div className="social-buttons">
+                        <button className="social-btn facebook">
+                            <img src={facebookLogo} alt="Facebook Logo" className="social-logo" />
+                        </button>
+                        <button className="social-btn twitter">
+                            <img src={twitterLogo} alt="Twitter Logo" className="social-logo" />
+                        </button>
+                        <button className="social-btn google">
+                            <img src={googleLogo} alt="Google Logo" className="social-logo" />
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            {/* Hidden Secret Input */}
+            <div className='secret'>
+                <input type='text' className='secretInput' />
+            </div>
+        </div>
+    );
+}
+
+export default Register;
 
 // function randomText(){
   
@@ -44,80 +129,3 @@ import twitterLogo from '../../pages/login/twitter-logo.png';
 //   setInterval(function(){
 //     rain()
 //   },20);
-  
-  
-  
-  
-  
-
-const Register = () =>{
-
-   
-      
-      
-    return(
-        <div>
-            <div className="container_reg">
-
-                <form className='form-container_reg'>
-
-                <div>
-                    <label for = "email">Email: </label>
-                    <input type="email" id="email" name="email" ></input>
-                </div>
-
-                 <div>
-                    <label for = "username">Username: </label>
-                    <input type="text" id="username" name="username" ></input>
-                 </div>
-
-                 <div>
-                    <label for = "password">Password: </label>
-                    <input type="password" id="password" name="password" ></input>
-                 </div>
-
-                <div>
-                    <label for = "age" className='specialLabel'>Age: </label>
-                    <input type="number" id="age" name="age" className='specialInput' ></input>
-                </div>
-
-                <div>
-                    <label for = "gender">Gender: </label>
-
-                <div className='gender'>
-                    <input type="radio" id="gender" name="gender" ></input>
-                    <span className='male'>Male</span>
-                    <input type="radio" id="gender" name="gender" ></input>  
-                    <span>Female</span>
-                </div>
-                    </div>
-
-                    <button className='registerButton'>Register</button>     
-                </form>
-
-                <div className="social-login">
-                    <p>Or signup with</p>
-                        <div className="social-buttons">
-                             <button className="social-btn facebook">
-                                 <img src={facebookLogo} alt="Facebook Logo" className="social-logo" />
-                             </button>
-                             <button className="social-btn twitter">
-                                <img src={twitterLogo} alt="Twitter Logo" className="social-logo" />
-                             </button>
-                            <button className="social-btn google">
-                                <img src={googleLogo} alt="Google Logo" className="social-logo" />
-                
-                             </button>
-                        </div>
-                   </div>
-            </div>
-
-            <div className='secret'>
-                <input type='text' className='secretInput'></input>
-            </div>
-        </div>
-    )
-}
-
-
-export default Register;

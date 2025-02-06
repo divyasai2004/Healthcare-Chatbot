@@ -1,55 +1,49 @@
-from flask import Flask, jsonify, request
+from flask import Flask, request, jsonify
 from flask_cors import CORS
 import os
 import requests
-from dotenv import load_dotenv
-
-load_dotenv()
 
 app = Flask(__name__)
 CORS(app)
 
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
-GEMINI_API_URL = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateText?key={GEMINI_API_KEY}"
+TOGETHER_API_KEY = os.getenv("TOGETHER_API_KEY")
+TOGETHER_API_URL = "https://api.together.xyz/v1/chat/completions"
 
 @app.route('/process', methods=['POST'])
-def chat_proxy():
-    data = request.get_json()
-
-    if not data or 'question' not in data:
-        return jsonify({'error': 'Missing "question" parameter'}), 400
-
-    user_question = data['question']
-
+def process_question():
     try:
-        headers = {'Content-Type': 'application/json'}
-        payload = {
-            "contents": [
-                {"parts": [{"text": user_question}]}
-            ]
+        data = request.get_json()
+
+        if "question" not in data:
+            return jsonify({"error": "Missing 'question' field"}), 400
+
+        headers = {
+            "Authorization": f"Bearer {TOGETHER_API_KEY}",
+            "Content-Type": "application/json"
         }
 
-        response = requests.post(GEMINI_API_URL, headers=headers, json=payload)
-        response.raise_for_status()  # Handle HTTP errors
+        payload = {
+            "model": "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo-128K",
+            "messages": [{"role": "user", "content": data["question"]}]
+        }
 
-        gemini_data = response.json()
+        response = requests.post(TOGETHER_API_URL, json=payload, headers=headers)
 
-        # Extract response text properly
-        gemini_response = gemini_data.get("candidates", [{}])[0].get("content", {}).get("parts", [{}])[0].get("text", "No response received")
+        if response.status_code == 200:
+            api_data = response.json()
+            if "choices" in api_data and api_data["choices"]:
+                chatbot_response = api_data["choices"][0]["message"]["content"]
+                return jsonify({"response": chatbot_response})  # ✅ Fix the response format
+            else:
+                return jsonify({"error": "Invalid API response format", "details": api_data}), 500
 
-        return jsonify({'response': gemini_response}), 200
+        return jsonify({"error": "Together API Error", "details": response.text}), response.status_code
 
-    except requests.exceptions.RequestException as e:
-        print(f"Gemini API Error: {e}")  
-        return jsonify({'error': 'Error communicating with Gemini API'}), 500
     except Exception as e:
-        print(f"An error occurred: {e}")
-        return jsonify({'error': 'An internal server error occurred'}), 500
+        return jsonify({"error": "Internal Server Error", "details": str(e)}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
-
-
+    app.run(debug=True)
 
 # from flask import Flask, jsonify, request
 # from flask_cors import CORS

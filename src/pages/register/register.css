@@ -1,154 +1,107 @@
-.container_reg{
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    padding: 9px;
-
-    background-color: rgb(0, 0, 0);
-    border: solid rgb(116, 44, 198) 1px;
-    color: rgb(254, 253, 255);
-
-    width: 400px;
-    height: 700px;
-    border-radius: 30px;
-
-    margin-right: auto;
-    margin-left: auto;
-    margin-top: 10vh;
-}
-
-.form-container_reg{
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-}
-
-input{
-    background-color: black;
-    border: solid rgb(173, 24, 210) 1px;
-    color: white;
-
-    border-radius: 25px;
-    width: 300px;
-    height: 25px;
-    padding-left: 10px;
-}
-
-label{
-    display: block;
-    margin-bottom: 10px;
-}
-
-.specialLabel{
-    display: inline;
-}
-
-.specialInput{
-    border-radius: 10px;
-    width: 50px;
-}
-
-
-.gender{
+.container_reg {
   display: flex;
-  flex-direction: row;
-  align-items:center;
-  gap: 10px;
-  
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 9px;
+  background-color: rgb(0, 0, 0);
+  border: solid rgb(116, 44, 198) 1px;
+  color: rgb(254, 253, 255);
+  width: 400px;
+  height: 700px;
+  border-radius: 30px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 10vh;
 }
 
-input[type="radio"] {
-    /* appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none; */
-    all: unset;
-    width: 20px;
-    height: 20px;
-    border: 2px solid rgb(88, 14, 162);
-    border-radius: 50%;
-    display: inline-block;
-    position: relative;
-    cursor: pointer;
-    background-color: transparent;
-    margin-right: 2px; 
-  }
-  
- 
-  input[type="radio"]:checked {
-    background-color: #040404; 
-    border-color:  rgb(118, 64, 218);
-    
-  }
-  
-  
-  input[type="radio"]:checked::before {
-    content: "";
-    display: block;
-    width: 10px;
-    height: 10px;
-    background-color: rgb(124, 18, 200);
-    border-radius: 50%;
-    position: absolute;
-    top: 50%; /*3.25px*/
-    left: 50%; /*3.25px*/
-    transform: translate(-50%, -50%); /* Align to the center */
-  }
-
-  .gender label {
-    color: white; /* Adjust label color for visibility on a dark background */
-    font-size: 16px;
+.form-container_reg {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
-  /* .registerButton{
-    background-color: rgb(148, 13, 210);
-    color: black;
-    border: solid green 1px;
-    border-radius: 25px;
-    width: 300px;
-    height: 40px;
-    cursor: pointer;
-    font-weight: 500;
-    font-size: 20px;
-  } */
+input {
+  background-color: black;
+  border: solid rgb(173, 24, 210) 1px;
+  color: white;
+  border-radius: 25px;
+  width: 300px;
+  height: 25px;
+  padding-left: 10px;
+}
 
-  .registerButton {
-    width: 100%;
-    padding: 0.8rem;
-    background: linear-gradient(to right, #ff007f, #007bff);
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    font-weight: bold;
-    color: #ffffff;
-    cursor: pointer;
-    transition: background 0.3s ease-in-out;
-  }
-  
-  .registerButton:hover {
-    background: linear-gradient(to right, #007bff, #ff007f);
-  }
-  
- 
+label {
+  display: block;
+  margin-bottom: 10px;
+}
 
-  .secretInput{
-    position: absolute;
-    right: 0;
-    border: none;
-    /* display: none; */
-    /* width: 10px; */
-    
-   }
+.specialLabel {
+  display: inline;
+}
 
+.specialInput {
+  border-radius: 10px;
+  width: 50px;
+}
 
-  input:hover{
-    border: solid rgb(178, 7, 204) 1px;
-  }
+.gender {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 15px;
+}
 
-  button:hover{
-    background-color: rgb(181, 7, 204);
-  }
+.gender-btn {
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+}
 
-  
+.gender-btn:hover {
+  background-color: rgb(181, 7, 204);
+}
+
+.gender-btn.active {
+  background-color: rgb(19, 228, 44);
+  color: white;
+}
+
+.gender-btn:focus {
+  outline: none;
+}
+
+.registerButton {
+  width: 100%;
+  padding: 0.8rem;
+  background: linear-gradient(to right, #ff007f, #007bff);
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.registerButton:hover {
+  background: linear-gradient(to right, #007bff, #ff007f);
+}
+
+.secretInput {
+  position: absolute;
+  right: 0;
+  border: none;
+}
+
+input:hover {
+  border: solid rgb(178, 7, 204) 1px;
+}
+
+button:hover {
+  background-color: rgb(181, 7, 204);
+}
