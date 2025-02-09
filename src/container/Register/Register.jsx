@@ -120,9 +120,9 @@ const Register = () => {
             required
           />
         </div>
-        <button type="submit" style={{ padding: '10px 15px', backgroundColor: '#007bff', color: '#fff', border: 'none', cursor: 'pointer' }}>
-          Submit
-        </button>
+        <button type="submit" onClick={handleSubmit} style={{ padding: '10px 15px', backgroundColor: '#007bff', color: '#fff', border: 'none', cursor: 'pointer' }}>
+            Submit
+          </button>
       </form>
     </div>
   );

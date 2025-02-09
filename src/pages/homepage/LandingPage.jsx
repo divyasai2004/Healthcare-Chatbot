@@ -33,7 +33,6 @@ const LandingPage = () => {
         {/* Navbar with dynamic Login/Logout */}
         <nav className="magical-nav">
           <a href="#features">Features</a>
-          <a href="#testimonials">Testimonials</a>
           {isLoggedIn ? (
             <button onClick={handleLogout} className="logout-btn">Logout</button> // Show Logout if logged in
           ) : (

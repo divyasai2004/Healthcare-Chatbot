@@ -1,126 +1,75 @@
-const User = require('./user');
 const express = require('express');
 const mongoose = require('mongoose');
-const stripe = require('stripe')('AIzaSyB2XHl4cfznKR0gySXPUp2n6WD6Yz5rWJc'); // Corrected initialization
-const app = express();
-const port = process.env.PORT || 3100;
-const bodyParser = require('body-parser');
 const cors = require('cors');
+const bodyParser = require('body-parser');
 const axios = require('axios');
+require('dotenv').config();
 
-// Import routes
-const Testimonial = require('./testimonial');
+const User = require('./user'); // Ensure this is correctly importing your User model
 const userRoutes = require("./routes/userRoutes");
 const appointmentRoutes = require("./routes/appointmentRoutes");
 
-app.use(express.json());
+const app = express();
+const port = process.env.PORT || 3100;
+
+// Middleware
 app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true })); // Important for form submissions
 app.use(bodyParser.json());
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://wahidzk0091:zaynab1234@cluster0.rsdtw.mongodb.net/", { 
+// Connect to MongoDB
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/chatbot-1", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-}).then(() => {
-    console.log('Connected to MongoDB');
-}).catch(err => {
-    console.error('Error connecting to MongoDB:', err);
-});
+}).then(() => console.log('Connected to MongoDB'))
+  .catch(err => console.error('MongoDB connection error:', err));
 
-// User Registration
-app.post('/', async (req, res) => {
+  app.post('/register', async (req, res) => {
     try {
+        console.log("Incoming request data:", req.body);  // Log incoming data
+
         const user = new User(req.body);
         await user.save();
+
+        console.log("User saved successfully:", user);  //  Confirm save
         res.status(201).send(user);
     } catch (error) {
-        console.error("User registration error:", error);
+        console.error("User registration error:", error);  //  Log error
         res.status(400).send({ error: error.message });
     }
 });
 
-// User Login
+
+// // User Registration Route
+// app.post('/register', async (req, res) => {
+//     console.log("Received registration request:", req.body); // Debugging log
+
+//     try {
+//         const user = new User(req.body);
+//         await user.save();
+//         console.log("User registered:", user);
+//         res.status(201).send(user);
+//     } catch (error) {
+//         console.error("User registration error:", error);
+//         res.status(400).send({ error: error.message });
+//     }
+// });
+
+// User Login Route
 app.post('/login', async (req, res) => {
     const { username, password } = req.body;
+    
     try {
-        const user = await User.findOne({ un: username, ps: password });
+        const user = await User.findOne({ username, password }); // Fixed field names
         if (user) {
             res.status(200).json({ message: "Login successful", user });
         } else {
             res.status(401).json({ message: "Invalid credentials" });
         }
-    } catch (e) {
-        console.error("Login error:", e);
+    } catch (error) {
+        console.error("Login error:", error);
         res.status(500).json({ message: "Something went wrong" });
-    }
-});
-
-// Chatbot Interaction (Gemini Proxy)
-app.post('/process', async (req, res) => {
-    const { question } = req.body;
-
-    try {
-        const pythonResponse = await axios.post('http://127.0.0.1:5000/process', { question });
-
-        if (!pythonResponse.data || !pythonResponse.data.response) {
-            throw new Error('Invalid response from Python API');
-        }
-
-        res.json(pythonResponse.data);
-    } catch (error) {
-        console.error("Error communicating with Python backend:", error.message);
-        res.status(500).json({ error: 'Error communicating with the chat service' });
-    }
-});
-
-// Testimonial Management
-app.get('/testimonials', async (req, res) => {
-    try {
-        const testimonials = await Testimonial.find();
-        res.json(testimonials);
-    } catch (error) {
-        console.error('Error fetching testimonials:', error);
-        res.status(500).send('Error fetching testimonials');
-    }
-});
-
-app.post('/testimonials', async (req, res) => {
-    const { name, feedback, image } = req.body;
-    const newTestimonial = new Testimonial({ name, feedback, image });
-
-    try {
-        await newTestimonial.save();
-        res.status(201).send('Testimonial added successfully');
-    } catch (error) {
-        console.error('Error adding testimonial:', error);
-        res.status(500).send('Error adding testimonial');
-    }
-});
-
-app.delete('/testimonials/:id', async (req, res) => {
-    try {
-        await Testimonial.findByIdAndDelete(req.params.id);
-        res.send('Testimonial deleted successfully');
-    } catch (error) {
-        console.error('Error deleting testimonial:', error);
-        res.status(500).send('Error deleting testimonial');
-    }
-});
-
-// Stripe Payment Intent Route
-app.post('/create-payment-intent', async (req, res) => {
-    try {
-        const { amount, currency } = req.body;
-
-        const paymentIntent = await stripe.paymentIntents.create({
-            amount,
-            currency,
-            payment_method_types: ['card'],
-        });
-
-        res.status(200).json({ clientSecret: paymentIntent.client_secret });
-    } catch (error) {
-        console.error('Error creating payment intent:', error);
-        res.status(400).json({ error: error.message });
     }
 });
 
@@ -132,6 +81,127 @@ app.use("/api/appointments", appointmentRoutes);
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
+
+
+
+// const User = require('./user');
+// const express = require('express');
+// const mongoose = require('mongoose');
+// //const stripe = require('stripe')('AIzaSyB2XHl4cfznKR0gySXPUp2n6WD6Yz5rWJc'); // Corrected initialization
+// const app = express();
+// const port = process.env.PORT || 3100;
+// const bodyParser = require('body-parser');
+// const cors = require('cors');
+// const axios = require('axios');
+// //const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY); // Corrected initialization
+// require('dotenv').config();
+
+// // Import routes
+// const userRoutes = require("./routes/userRoutes");
+// const appointmentRoutes = require("./routes/appointmentRoutes");
+
+// app.use(express.json());
+// app.use(cors());
+// app.use(bodyParser.json());
+
+// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/chatbot-1", { 
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+// }).then(() => {
+//     console.log('Connected to MongoDB');
+// }).catch(err => {
+//     console.error('Error connecting to MongoDB:', err);
+// });
+
+// // // User Registration
+// // app.post('/', async (req, res) => {
+// //     try {
+// //         const user = new User(req.body);
+// //         await user.save();
+// //         res.status(201).send(user);
+// //     } catch (error) {
+// //         console.error("User registration error:", error);
+// //         res.status(400).send({ error: error.message });
+// //     }
+// // });
+
+// // User Registration
+// app.post('/register', async (req, res) => {
+//     try {
+//         const user = new User(req.body);
+//         await user.save();
+//         console.log("user", user);
+//         res.status(201).send(user);
+//     } catch (error) {
+//         console.error("User registration error:", error);
+//         res.status(400).send({ error: error.message });
+//     }
+// });
+
+
+
+// // User Login
+// app.post('/login', async (req, res) => {
+//     const { username, password } = req.body;
+//     try {
+//         const user = await User.findOne({ un: username, ps: password });
+//         if (user) {
+//             res.status(200).json({ message: "Login successful", user });
+//         } else {
+//             res.status(401).json({ message: "Invalid credentials" });
+//         }
+//     } catch (e) {
+//         console.error("Login error:", e);
+//         res.status(500).json({ message: "Something went wrong" });
+//     }
+// });
+
+// // Chatbot Interaction 
+// app.post('/process', async (req, res) => {
+//     const { question } = req.body;
+
+//     try {
+//         const pythonResponse = await axios.post('http://127.0.0.1:5000/process', { question });
+
+//         if (!pythonResponse.data || !pythonResponse.data.response) {
+//             throw new Error('Invalid response from Python API');
+//         }
+
+//         res.json(pythonResponse.data);
+//     } catch (error) {
+//         console.error("Error communicating with Python backend:", error.message);
+//         res.status(500).json({ error: 'Error communicating with the chat service' });
+//     }
+// });
+
+
+
+// // Stripe Payment Intent Route
+// app.post('/create-payment-intent', async (req, res) => {
+//     try {
+//         const { amount, currency } = req.body;
+
+//         const paymentIntent = await stripe.paymentIntents.create({
+//             amount,
+//             currency,
+//             payment_method_types: ['card'],
+//         });
+
+//         res.status(200).json({ clientSecret: paymentIntent.client_secret });
+//     } catch (error) {
+//         console.error('Error creating payment intent:', error);
+//         res.status(400).json({ error: error.message });
+//     }
+// });
+
+// // Other routes
+// app.use("/api/users", userRoutes);
+// app.use("/api/appointments", appointmentRoutes);
+
+// // Start the server
+// app.listen(port, () => {
+//     console.log(`Server is running on http://localhost:${port}`);
+// });
 
 
 

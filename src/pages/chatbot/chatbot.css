@@ -52,8 +52,16 @@
 .message.bot {
   align-self: flex-start;
   /* background: transparent; */
+  text-align: left; /* Ensure text aligns to the left */
+  white-space: pre-wrap; /* Preserve line breaks but prevent extra spaces */
   background: #ab56ff18;
 }
+
+.message.bot p {
+  margin: 0; /* Remove any default margin */
+  padding-left: 0; /* Ensure no extra padding */
+}
+
 
 .input-area {
   display: flex;
@@ -83,7 +91,7 @@ input:focus {
 button {
   margin-left: 10px;
   padding: 10px 20px;
-  background: #000000;
+  background: #f91919;
   color: #d9d6e0;
   border: none;
   border-radius: 20px;
