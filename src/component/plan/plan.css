@@ -11,6 +11,13 @@
 }
 
 .planButton{
-    /* display: inline; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
     
+}
+
+.plan:hover {
+    opacity: 0.8;
 }

@@ -1,0 +1,42 @@
+.success-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to bottom, #0a0a0a, #1a1a1a);
+    color: white;
+  }
+  
+  .success-box {
+    background: #222;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+  }
+  
+  .success-box h1 {
+    color: #4caf50;
+    margin-bottom: 15px;
+  }
+  
+  .success-box p {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+  
+  .success-box button {
+    background: #ff9800;
+    border: none;
+    padding: 12px 20px;
+    color: white;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+  
+  .success-box button:hover {
+    background: #e68900;
+  }
+  

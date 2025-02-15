@@ -1,61 +1,37 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import "./RoleSelection.css";
 
 const RoleSelection = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const userRole = sessionStorage.getItem("userRole");
-
-    if (userRole === "admin") {
-      navigate("/admin-dashboard", { replace: true });
-    } else if (userRole === "user") {
-      navigate("/user-dashboard", { replace: true });
-    } else {
-      alert("Unauthorized access! Please login.");
-      navigate("/login", { replace: true });
+    // FIX: Use sessionStorage instead of localStorage
+    const isLoggedIn = sessionStorage.getItem("user");
+    if (!isLoggedIn) {
+      navigate("/login");
     }
   }, [navigate]);
 
+  const selectRole = (role) => {
+    sessionStorage.setItem("userRole", role);
+    navigate(role === "admin" ? "/admin-dashboard" : "/user-dashboard");
+  };
+
   return (
-    <div className="continue-container">
-      <h2>Redirecting...</h2>
+    <div className="role-container">
+      <h1>Select Your Role</h1>
+      <p>Choose how you want to use the platform.</p>
+      <div className="role-buttons">
+        <button className="admin-btn" onClick={() => selectRole("admin")}>
+          Admin Panel
+        </button>
+        <button className="user-btn" onClick={() => selectRole("user")}>
+          User Dashboard
+        </button>
+      </div>
     </div>
   );
 };
 
 export default RoleSelection;
-
-
-// import { useNavigate } from "react-router-dom";
-// import { useAuth } from "../../context/AuthContext";
-
-// const ContinueAs = () => {
-//   const navigate = useNavigate();
-//   const { login } = useAuth();
-
-//   const handleAdminLogin = () => {
-//     const adminPassword = prompt("Enter Admin Password:");
-//     if (adminPassword === "admin123") {
-//       login({ email: "admin@example.com" }, "admin");
-//       navigate("/admin/dashboard", { replace: true });
-//     } else {
-//       alert("Incorrect Password!");
-//     }
-//   };
-
-//   const handleUserContinue = () => {
-//     login({ email: "user@example.com" }, "user"); // Set role as user
-//     navigate("/user/dashboard", { replace: true });
-//   };
-
-//   return (
-//     <div className="continue-container">
-//       <h2>Continue As</h2>
-//       <button onClick={handleAdminLogin}>Admin</button>
-//       <button onClick={handleUserContinue}>User</button>
-//     </div>
-//   );
-// };
-
-// export default ContinueAs;

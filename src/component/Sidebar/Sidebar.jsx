@@ -1,33 +1,39 @@
 import React, { useState } from "react";
-import "./Sidebar.css"; // Add styling here
+import { Link } from "react-router-dom";
+import "./Sidebar.css";
 
-const Sidebar = ({ history }) => {
-  const [isOpen, setIsOpen] = useState(false);
+const Sidebar = ({ role }) => {
+  const [isOpen, setIsOpen] = useState(true);
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };
 
   return (
-    <div>
+    <div className={`sidebar ${isOpen ? "open" : "closed"}`}>
       <button className="sidebar-toggle" onClick={toggleSidebar}>
-        {isOpen ? "Close" : "History"}
+        {isOpen ? ">" : "☰"}
       </button>
 
-      <div className={`sidebar ${isOpen ? "open" : "closed"}`}>
-        <h2>Chat History</h2>
-        <div className="history-list">
-          {history.length > 0 ? (
-            history.map((message, index) => (
-              <div key={index} className="history-item">
-                {message}
-              </div>
-            ))
-          ) : (
-            <p>No history available.</p>
-          )}
-        </div>
-      </div>
+      <h2>{role === "admin" ? "Admin Dashboard" : "User Dashboard"}</h2>
+
+      <ul className="sidebar-menu">
+        {role === "admin" ? (
+          <>
+            <li><Link to="/admin/dashboard">Dashboard</Link></li>
+            <li><Link to="/admin/manage-users">Manage Users</Link></li>
+            <li><Link to="/admin/reports">Reports</Link></li>
+            <li><Link to="/admin/settings">Settings</Link></li>
+          </>
+        ) : (
+          <>
+            <li><Link to="/user/dashboard">Dashboard</Link></li>
+            <li><Link to="/user/chatbot">Chatbot</Link></li>
+            <li><Link to="/user/history">Chat History</Link></li>
+          </>
+        )}
+        
+      </ul>
     </div>
   );
 };
