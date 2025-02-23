@@ -29,6 +29,11 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/chatbot-1
     try {
         console.log("Incoming request data:", req.body);  // Log incoming data
 
+
+         // Ensure required fields exist
+         if (!req.body.username || !req.body.password || !req.body.email) {
+            return res.status(400).json({ error: "All fields are required" });
+        }
         const user = new User(req.body);
         await user.save();
 
@@ -41,20 +46,6 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/chatbot-1
 });
 
 
-// // User Registration Route
-// app.post('/register', async (req, res) => {
-//     console.log("Received registration request:", req.body); // Debugging log
-
-//     try {
-//         const user = new User(req.body);
-//         await user.save();
-//         console.log("User registered:", user);
-//         res.status(201).send(user);
-//     } catch (error) {
-//         console.error("User registration error:", error);
-//         res.status(400).send({ error: error.message });
-//     }
-// });
 
 // User Login Route
 app.post('/login', async (req, res) => {

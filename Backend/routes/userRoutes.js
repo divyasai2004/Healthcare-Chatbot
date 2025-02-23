@@ -7,10 +7,10 @@ router.post("/register", async (req, res) => {
     try {
         console.log("Received registration request:", req.body);
 
-        const { fullname, email, username, password, dob, gender, role } = req.body;
+        const {email, username, password, role } = req.body;
 
         // Ensure all required fields are present
-        if (!fullname || !email || !username || !password || !dob || !gender) {
+        if (!email || !username || !password ) {
             return res.status(400).json({ message: "All fields are required!" });
         }
 
@@ -27,7 +27,7 @@ router.post("/register", async (req, res) => {
         // Default role is "user" unless explicitly set
         const userRole = role || "user";
 
-        const user = new User({ fullname, email, username, password, dob, gender, role: userRole });
+        const user = new User({ email, username, password, role: userRole });
         await user.save();
 
         res.status(201).json({ success: true, message: "User registered successfully!" });

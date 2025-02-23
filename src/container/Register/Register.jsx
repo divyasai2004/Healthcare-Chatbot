@@ -1,39 +1,27 @@
 import axios from 'axios';
-import "./Register.css"
-import React, { useState } from 'react'
+import "./register.css";
+import React, { useState } from 'react';
 
 const Register = () => {
-  const [fullname, setFullName] = useState('');
   const [email, setEmail] = useState('');
-  const [dateofbirth, setDateOfBirth] = useState('');
-  const [gender, setGender] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    alert(fullname);
 
     try {
-      const response = await axios.post('http://localhost:3100/', {
-        Fullname: fullname,
-        Email: email,
-        DOB: dateofbirth,
-        Gen: gender,
-        un: username,
-        ps: password
+      const response = await axios.post('http://localhost:3100/api/users/register', { 
+        email, 
+        username, 
+        password 
       });
-      console.log(response.data); // Log the response data
+      console.log("Server Response:", response.data);
+      alert("Registration successful!");
     } catch (error) {
-      console.error(error); // Log any errors
+      console.error("Error:", error.response?.data || error.message);
+      alert(error.response?.data?.message || "Registration failed!");
     }
-
-    console.log('Full Name: ', fullname);
-    console.log('Email: ', email);
-    console.log('Date of Birth: ', dateofbirth);
-    console.log('Gender: ', gender);
-    console.log('Username: ', username);
-    console.log('Password: ', password);
   };
 
   return (
@@ -41,88 +29,18 @@ const Register = () => {
       <h2>Register</h2>
       <form onSubmit={handleSubmit}>
         <div style={{ marginBottom: '15px' }}>
-          <label style={{ display: 'block', marginBottom: '5px' }}>Fullname:</label>
-          <input
-            type="text"
-            value={fullname}
-            onChange={(e) => setFullName(e.target.value)}
-            style={{ width: '100%', padding: '8px', boxSizing: 'border-box' }}
-            required
-          />
+          <label>Email:</label>
+          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
         </div>
         <div style={{ marginBottom: '15px' }}>
-          <label style={{ display: 'block', marginBottom: '5px' }}>Email:</label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            style={{ width: '100%', padding: '8px', boxSizing: 'border-box' }}
-            required
-          />
+          <label>Username:</label>
+          <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} required />
         </div>
         <div style={{ marginBottom: '15px' }}>
-          <label style={{ display: 'block', marginBottom: '5px' }}>Date of Birth:</label>
-          <input
-            type="date"
-            value={dateofbirth}
-            onChange={(e) => setDateOfBirth(e.target.value)}
-            style={{ width: '100%', padding: '8px', boxSizing: 'border-box' }}
-            required
-          />
+          <label>Password:</label>
+          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
         </div>
-        <div style={{ marginBottom: '15px' }}>
-          <label style={{ display: 'block', marginBottom: '5px' }}>Gender:</label>
-          <label>
-            <input
-              type="radio"
-              value="male"
-              checked={gender === 'male'}
-              onChange={() => setGender('male')}
-            />
-            Male
-          </label>
-          <label>
-            <input
-              type="radio"
-              value="female"
-              checked={gender === 'female'}
-              onChange={() => setGender('female')}
-            />
-            Female
-          </label>
-          <label>
-            <input
-              type="radio"
-              value="other"
-              checked={gender === 'other'}
-              onChange={() => setGender('other')}
-            />
-            Other
-          </label>
-        </div>
-        <div style={{ marginBottom: '15px' }}>
-          <label style={{ display: 'block', marginBottom: '5px' }}>Username:</label>
-          <input
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            style={{ width: '100%', padding: '8px', boxSizing: 'border-box' }}
-            required
-          />
-        </div>
-        <div style={{ marginBottom: '15px' }}>
-          <label style={{ display: 'block', marginBottom: '5px' }}>Password:</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            style={{ width: '100%', padding: '8px', boxSizing: 'border-box' }}
-            required
-          />
-        </div>
-        <button type="submit" onClick={handleSubmit} style={{ padding: '10px 15px', backgroundColor: '#007bff', color: '#fff', border: 'none', cursor: 'pointer' }}>
-            Submit
-          </button>
+        <button type="submit">Submit</button>
       </form>
     </div>
   );

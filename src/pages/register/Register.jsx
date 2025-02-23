@@ -8,14 +8,13 @@ import twitterLogo from '../../pages/login/twitter-logo.png';
 const Register = () => {
     const navigate = useNavigate(); // ✅ Hook for navigation
 
-    const [gender, setGender] = useState('');
+    
     const [formData, setFormData] = useState({
-        fullname: '',
+        
         email: '',
         username: '',
         password: '',
-        dob: '',
-        gender: ''
+        
     });
 
     // Handle input change
@@ -28,13 +27,13 @@ const Register = () => {
         event.preventDefault(); // Prevents page refresh
 
         // Ensure all required fields are filled
-        if (!formData.fullname || !formData.email || !formData.username || !formData.password || !formData.dob || !gender) {
+        if (!formData.email || !formData.username || !formData.password ) {
             alert("Please fill in all fields before submitting.");
             return;
         }
 
         // Ensure gender is included in form data
-        const finalData = { ...formData, gender };
+        const finalData = { ...formData};
 
         try {
             const response = await fetch("http://localhost:3100/api/users/register", {
@@ -42,30 +41,28 @@ const Register = () => {
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(finalData)
             });
-
+        
             const data = await response.json();
+            console.log("Server Response:", data); // ✅ Log the response for debugging
+        
             if (response.ok) {  
                 alert("User registered successfully!");
-                navigate('/login');  // ✅ Redirect to login page
+                navigate('/login');
             } else {
-                alert(data.message || "Registration failed!");
+                alert("Registration failed: " + data.error);
             }
         } catch (error) {
             console.error("Error:", error);
             alert("Something went wrong!");
         }
+        
     };
 
     return (
         <div>
             <div className="container_reg">
                 <form className='form-container_reg' onSubmit={handleRegister}>
-                    {/* Full Name Field */}
-                    <div>
-                        <label htmlFor="fullname">Full Name: </label>
-                        <input type="text" id="fullname" name="fullname" value={formData.fullname} onChange={handleChange} required />
-                    </div>
-
+                   
                     {/* Email Field */}
                     <div>
                         <label htmlFor="email">Email: </label>
@@ -84,32 +81,7 @@ const Register = () => {
                         <input type="password" id="password" name="password" value={formData.password} onChange={handleChange} required />
                     </div>
 
-                    {/* Age Field */}
-                    <div>
-                        <label htmlFor="dob" className='specialLabel'>Age: </label>
-                        <input type="text" id="dob" name="dob" className='specialInput' value={formData.dob} onChange={handleChange} required />
-                    </div>
-
-                    {/* Gender Field */}
-                    <div>
-                        <label>Gender: </label>
-                        <div className='gender'>
-                            <button
-                                type="button"
-                                className={`gender-btn ${gender === "male" ? "active" : ""}`}
-                                onClick={() => setGender("male")}
-                            >
-                                Male
-                            </button>
-                            <button
-                                type="button"
-                                className={`gender-btn ${gender === "female" ? "active" : ""}`}
-                                onClick={() => setGender("female")}
-                            >
-                                Female
-                            </button>
-                        </div>
-                    </div>
+                   
 
                     {/* Register Button */}
                     <button type="submit" className='registerButton'>Register</button>

@@ -12,8 +12,9 @@ const Sidebar = ({ role }) => {
   return (
     <div className={`sidebar ${isOpen ? "open" : "closed"}`}>
       <button className="sidebar-toggle" onClick={toggleSidebar}>
-        {isOpen ? ">" : "☰"}
+       {isOpen ? "«" : "☰"}
       </button>
+
 
       <h2>{role === "admin" ? "Admin Dashboard" : "User Dashboard"}</h2>
 
