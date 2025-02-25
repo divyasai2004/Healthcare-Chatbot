@@ -7,7 +7,7 @@ const UserDashboard = () => {
 
   const handleLogout = () => {
     sessionStorage.clear();
-    navigate("/login");
+    navigate("/");
   };
 
   return (

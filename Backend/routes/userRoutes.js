@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const User = require("../user");
+const bcrypt = require("bcryptjs");
 
 // User Registration Route
 router.post("/register", async (req, res) => {
@@ -37,8 +38,6 @@ router.post("/register", async (req, res) => {
     }
 });
 
-
-// User Login Route
 router.post("/login", async (req, res) => {
   const { username, password } = req.body;
 
@@ -52,13 +51,19 @@ router.post("/login", async (req, res) => {
       });
     }
 
-    // Check for regular user
-    const user = await User.findOne({ username, password });
-
+    // Find user by username
+    const user = await User.findOne({ username });
     if (!user) {
       return res.status(401).json({ success: false, message: "Invalid username or password!" });
     }
 
+    // Compare hashed password
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
+      return res.status(401).json({ success: false, message: "Invalid username or password!" });
+    }
+
+    // Successful login
     res.status(200).json({
       success: true,
       message: "Login successful",
@@ -69,5 +74,6 @@ router.post("/login", async (req, res) => {
     res.status(500).json({ success: false, message: "Something went wrong!" });
   }
 });
+
 module.exports = router;
 

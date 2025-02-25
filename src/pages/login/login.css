@@ -203,6 +203,20 @@ text-decoration: none;
 text-decoration: underline;
 }
 
+.signup-text {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  text-align: center;
+}
 
-/*,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,*/
+.signup-button {
+  background: none;
+  border: none;
+  color: #007bff;
+  font-weight: bold;
+  cursor: pointer;
+}
 
+.signup-button:hover {
+  text-decoration: underline;
+}
