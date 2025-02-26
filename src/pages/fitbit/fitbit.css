@@ -19,30 +19,42 @@
 .gridItem{
     width: fit-content;
 }
+.button-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
 
 .button {
-    background: linear-gradient(90deg, #6a5acd, #ff69b4); /* Subtle purple to pink gradient */
-    color: white; /* Text color */
-    border: 1px solid #1926dd; /* Border matching the gradient */
-    border-radius: 40px; /* Slightly rounded corners */
-    padding: 10px 20px; /* Padding for size */
-    font-size: 16px; /* Text size */
-    font-weight: bold; /* Bold text for emphasis */
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.6); /* Glow effect on text */
-    box-shadow: 0 4px 6px rgba(255, 105, 180, 0.4); /* Light shadow for depth */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: all 0.3s ease; /* Smooth transition */
-    
-  }
-  
+  background: linear-gradient(135deg, #6a5acd, #ff69b4);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 25px;
+  font-size: 18px;
+  font-weight: bold;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 6px rgba(255, 105, 180, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Add hover effect */
 .button:hover {
-    background: linear-gradient(90deg, #ff69b4, #3988af); /* Reverse gradient */
-    transform: translateY(-2px); /* Subtle lift effect */
-    box-shadow: 0 6px 8px rgba(190, 105, 255, 0.6); /* More pronounced shadow */
-  }
-  
-.button:focus {
-    outline: none; /* No default focus outline */
-    box-shadow: 0 0 10px rgba(106, 90, 205, 0.8); /* Focus glow effect */
-  }
+  background: linear-gradient(135deg, #ff69b4, #3988af);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(190, 105, 255, 0.6);
+}
+
+/* Add click effect */
+.button:active {
+  transform: scale(0.95);
+  box-shadow: 0 3px 6px rgba(255, 69, 180, 0.5);
+}
+
+
   

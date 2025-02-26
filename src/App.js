@@ -23,6 +23,12 @@ import ManageUsers from "./pages/admin/ManageUsers";
 import Reports from "./pages/admin/Reports";
 import Settings from "./pages/admin/Settings";
 import PaymentManagement from "./pages/admin/PaymentManagement.jsx";
+import SymptomAnalysis from "./pages/SymptomAnalysis";
+
+
+import DownloadReport from "./pages/report/DownloadReport";
+import Appoint from "./pages/report/Appoint";
+import HealthStatistics from "./pages/report/HealthStatistics";
 
 import "./App.css";
 
@@ -49,13 +55,20 @@ const App = () => {
           
           {/* User Routes */}
           <Route path="/user-dashboard" element={<UserDashboard />} />
+          
+
 
           {/* Protected User-Specific Routes */}
           <Route path="/fitbit" element={<ProtectedRoute allowedRoles={["user"]}><Fitbit /></ProtectedRoute>} />
           <Route path="/appointment" element={<ProtectedRoute allowedRoles={["user"]}><Appointment /></ProtectedRoute>} />
           <Route path="/chatbot" element={<Chatbot />} />
           <Route path="/report" element={<ProtectedRoute allowedRoles={["user"]}><Report /></ProtectedRoute>} />
+          <Route path="/symptom-analysis" element={<ProtectedRoute allowedRoles={["user"]}><SymptomAnalysis /></ProtectedRoute>} />
 
+          <Route path="/" element={<Report />} />
+          <Route path="/download-report" element={<DownloadReport />} />
+          <Route path="/appointments" element={<Appoint />} />
+          <Route path="/health-statistics" element={<HealthStatistics />} />
           {/* Catch-All Route */}
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>

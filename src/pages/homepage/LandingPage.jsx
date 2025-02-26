@@ -50,7 +50,7 @@ const LandingPage = () => {
       <section id="features" className="magical-features">
   <h2 className="section-title">Features</h2>
   <div className="features-grid">
-    <Link to="/chatbot" className="feature-card">
+    <Link to="/symptom-analysis" className="feature-card">
       <h3>💊 Symptom Analysis</h3>
       <p>AI-powered insights for your health symptoms.</p>
     </Link>
