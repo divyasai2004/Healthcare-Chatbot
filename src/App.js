@@ -59,11 +59,11 @@ const App = () => {
 
 
           {/* Protected User-Specific Routes */}
-          <Route path="/fitbit" element={<ProtectedRoute allowedRoles={["user"]}><Fitbit /></ProtectedRoute>} />
-          <Route path="/appointment" element={<ProtectedRoute allowedRoles={["user"]}><Appointment /></ProtectedRoute>} />
+          <Route path="/fitbit" element={<Fitbit />} />
+          <Route path="/appointment" element={<Appointment />}/>
           <Route path="/chatbot" element={<Chatbot />} />
-          <Route path="/report" element={<ProtectedRoute allowedRoles={["user"]}><Report /></ProtectedRoute>} />
-          <Route path="/symptom-analysis" element={<ProtectedRoute allowedRoles={["user"]}><SymptomAnalysis /></ProtectedRoute>} />
+          <Route path="/report" element={<Report />}/>
+          <Route path="/symptom-analysis" element={<SymptomAnalysis />}/>
 
           <Route path="/" element={<Report />} />
           <Route path="/download-report" element={<DownloadReport />} />

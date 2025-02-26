@@ -93,8 +93,13 @@ body {
   box-shadow: 0 4px 10px rgba(42, 33, 206, 0.762);
   transition: transform 0.3s;
   height: 140px;
+  color: inherit; /* Keeps text color the same */
+  text-decoration: none; /* Optional: Removes underline */
 }
 
+.feature-card:visited {
+  color: inherit; /* Prevents blue tint */
+}
 .feature-card:hover {
   transform: translateY(-10px);
 }
