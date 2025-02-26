@@ -27,16 +27,7 @@ body {
   color: #a5d7ed;
 }
 
-/* .magical-btn {
-  background: linear-gradient(135deg);
-  padding: 10px 20px;
-  border-radius: 20px;
-  color: white;
-  font-weight: bold; 
-  text-decoration: none;
-  transition: transform 0.3s;
-}
- */
+
 .magical-btn:hover {
   transform: scale(1.1);
 }

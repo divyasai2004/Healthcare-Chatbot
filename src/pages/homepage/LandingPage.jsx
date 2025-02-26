@@ -48,27 +48,30 @@ const LandingPage = () => {
       </section>
 
       <section id="features" className="magical-features">
-        <h2 className="section-title">Features</h2>
-        <div className="features-grid">
-          <div className="feature-card">
-            <h3>💊 Symptom Analysis</h3>
-            <p>AI-powered insights for your health symptoms.</p>
-          </div>
-          <div className="feature-card">
-            <h3>🩺 Appointment Scheduling</h3>
-            <p>Book with healthcare professionals instantly.</p>
-          </div>
-          <div className="feature-card">
-            <h3>📄 Reports</h3>
-            <p>Access and download health reports anytime.</p>
-          </div>
+  <h2 className="section-title">Features</h2>
+  <div className="features-grid">
+    <Link to="/chatbot" className="feature-card">
+      <h3>💊 Symptom Analysis</h3>
+      <p>AI-powered insights for your health symptoms.</p>
+    </Link>
+    
+    <Link to="/appointment" className="feature-card">
+      <h3>🩺 Appointment Scheduling</h3>
+      <p>Book with healthcare professionals instantly.</p>
+    </Link>
 
-          <div className="feature-card">
-            <h3>💪 FitBit</h3>
-            <p>All your fitness insights on one sleek card.</p>
-          </div>
-        </div>
-      </section>
+    <Link to="/report" className="feature-card">
+      <h3>📄 Reports</h3>
+      <p>Access and download health reports anytime.</p>
+    </Link>
+
+       <Link to="/fitbit" className="feature-card">
+          <h3>💪 FitBit</h3>
+          <p>All your fitness insights on one sleek card.</p>
+       </Link>
+    </div>
+     </section>
+
 
       <footer className="magical-footer">
         <p>&copy; 2025 HealthBot. All rights reserved.</p>

@@ -3,20 +3,18 @@ const router = express.Router();
 const User = require("../user");
 const bcrypt = require("bcryptjs");
 
-// User Registration Route
+// User Registration Route (Already present)
 router.post("/register", async (req, res) => {
     try {
         console.log("Received registration request:", req.body);
 
-        const {email, username, password, role } = req.body;
+        const { email, username, password, role } = req.body;
 
-        // Ensure all required fields are present
-        if (!email || !username || !password ) {
+        if (!email || !username || !password) {
             return res.status(400).json({ message: "All fields are required!" });
         }
 
-        // Reject registration if email is missing or empty
-        if (!email || email.trim() === '') {
+        if (!email.trim()) {
             return res.status(400).json({ message: "Email is required!" });
         }
 
@@ -25,7 +23,6 @@ router.post("/register", async (req, res) => {
             return res.status(400).json({ message: "Email or Username already exists!" });
         }
 
-        // Default role is "user" unless explicitly set
         const userRole = role || "user";
 
         const user = new User({ email, username, password, role: userRole });
@@ -38,41 +35,69 @@ router.post("/register", async (req, res) => {
     }
 });
 
+// User Login Route (Already present)
 router.post("/login", async (req, res) => {
-  const { username, password } = req.body;
+    const { username, password } = req.body;
 
-  try {
-    // Check for admin login
-    if (username === "admin" && password === "admin123") {
-      return res.status(200).json({
-        success: true,
-        message: "Admin login successful",
-        user: { username: "admin", role: "admin" },
-      });
+    try {
+        if (username === "admin" && password === "admin123") {
+            return res.status(200).json({
+                success: true,
+                message: "Admin login successful",
+                user: { username: "admin", role: "admin" },
+            });
+        }
+
+        const user = await User.findOne({ username });
+        if (!user) {
+            return res.status(401).json({ success: false, message: "Invalid username or password!" });
+        }
+
+        const isMatch = await bcrypt.compare(password, user.password);
+        if (!isMatch) {
+            return res.status(401).json({ success: false, message: "Invalid username or password!" });
+        }
+
+        res.status(200).json({
+            success: true,
+            message: "Login successful",
+            user: { username: user.username, role: user.role || "user" },
+        });
+    } catch (error) {
+        console.error("Login error:", error);
+        res.status(500).json({ success: false, message: "Something went wrong!" });
     }
+});
 
-    // Find user by username
-    const user = await User.findOne({ username });
-    if (!user) {
-      return res.status(401).json({ success: false, message: "Invalid username or password!" });
+//  Fetch all users
+router.get("/", async (req, res) => {
+    try {
+        const users = await User.find({}, "username email role");
+        res.status(200).json(users);
+    } catch (error) {
+        res.status(500).json({ message: "Error fetching users" });
     }
+});
 
-    // Compare hashed password
-    const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) {
-      return res.status(401).json({ success: false, message: "Invalid username or password!" });
+//  Update user role
+router.put("/:id", async (req, res) => {
+    try {
+        const { role } = req.body;
+        await User.findByIdAndUpdate(req.params.id, { role });
+        res.status(200).json({ message: "User role updated successfully" });
+    } catch (error) {
+        res.status(500).json({ message: "Error updating role" });
     }
+});
 
-    // Successful login
-    res.status(200).json({
-      success: true,
-      message: "Login successful",
-      user: { username: user.username, role: user.role || "user" },
-    });
-  } catch (error) {
-    console.error("Login error:", error);
-    res.status(500).json({ success: false, message: "Something went wrong!" });
-  }
+//  Delete user
+router.delete("/:id", async (req, res) => {
+    try {
+        await User.findByIdAndDelete(req.params.id);
+        res.status(200).json({ message: "User deleted successfully" });
+    } catch (error) {
+        res.status(500).json({ message: "Error deleting user" });
+    }
 });
 
 module.exports = router;

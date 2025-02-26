@@ -1,27 +1,184 @@
-.user-dashboard {
+/* Dark Mode - Enhanced Contrast */
+.dashboard-container {
+  display: flex;
+  height: 100vh;
+  background-color: #121212; /* Deep black for better contrast */
+  color: #ffffff;
+  transition: background 0.3s;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 300px;
+  background: #1e1e1e; /* Dark gray for slight separation */
+  color: #ffffff;
+  transition: transform 0.3s ease-in-out;
+  box-shadow: 4px 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.sidebar.closed {
+  transform: translateX(-100%);
+}
+
+.sidebar h2 {
   text-align: center;
-  padding: 50px;
-  color: white;
+  padding: 16px;
+  font-size: 22px;
+  border-bottom: 1px solid #333;
+  color: #12caf3; /* Cyan glow effect */
 }
 
-.user-dashboard h1 {
-  font-size: 2.5rem;
-  background: linear-gradient(to right, #00ffcc, #0066ff);
-  -webkit-background-clip: text;
-  color: transparent;
+.sidebar ul {
+  list-style: none;
+  padding: 0;
 }
 
-.user-dashboard p {
-  font-size: 1.2rem;
-  margin-top: 10px;
+.sidebar li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px;
+  cursor: pointer;
+  transition: background 0.3s, box-shadow 0.3s;
+  font-size: 18px;
+  color: #ffffff;
 }
 
-.logout-btn {
-  padding: 10px 20px;
-  margin-top: 20px;
-  background-color: red;
-  color: white;
+.sidebar li:hover {
+  background: #333;
+  box-shadow: inset 2px 2px 8px rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-toggle {
+  position: absolute;
+  top: 10px;
+  left: 260px;
+  background: none;
   border: none;
-  border-radius: 5px;
+  color: #ffffff;
+  font-size: 24px;
   cursor: pointer;
 }
+
+.sidebar-toggle.open {
+  left: 10px;
+}
+
+/* Main Content */
+.dashboard-content {
+  flex: 1;
+  padding: 30px;
+  margin-left: 300px;
+  transition: margin-left 0.3s ease-in-out;
+}
+
+.dashboard-content.shifted {
+  margin-left: 0;
+}
+
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: #1e1e1e;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+.profile-icon {
+  font-size: 40px;
+  color: #f39c12; /* Orange for contrast */
+}
+
+/* Feature Cards */
+.feature-cards {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.card {
+  flex: 1;
+  padding: 20px;
+  background: #242424; /* Dark but lighter than the background */
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 255, 255, 0.2);
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+  color: white;
+  min-width: 250px;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  background: #333;
+  box-shadow: 0 4px 15px rgba(0, 255, 255, 0.4);
+}
+
+.card-icon {
+  font-size: 40px;
+  color: #12caf3; /* Electric blue for contrast */
+}
+
+/* Health Stats - Enhanced */
+.health-stats {
+  margin-top: 30px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05); /* Subtle glass effect */
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(254, 254, 254, 0.2);
+  backdrop-filter: blur(10px);
+  color: white;
+}
+
+/* Stats Grid */
+.stats-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Individual Stat Box */
+.stat {
+  flex: 1;
+  text-align: center;
+  padding: 20px;
+  border-radius: 12px;
+  min-width: 180px;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.3), rgba(5, 1, 113, 0.3));
+  box-shadow: 0 4px 15px rgba(70, 2, 67, 0.5);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+}
+
+/* Hover Effect */
+.stat:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px  rgba(241, 160, 10, 0.7);
+}
+
+/* Stat Numbers */
+.stat-number {
+  font-size: 28px;
+  font-weight: bold;
+  color: #00ffff; /* Bright cyan for better contrast */
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.8);
+}
+
+/* Stat Label */
+.stat-label {
+  font-size: 16px;
+  color: #ffffff;
+  opacity: 0.8;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+
