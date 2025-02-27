@@ -120,3 +120,39 @@
 .timeslotContainer {
     margin-bottom: 30px;
 }
+.nearbyDoctors {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    color: white;
+    text-align: center;
+}
+
+.nearbyDoctors p {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.closeBtn {
+    background: red;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.backBtn {
+    margin-top: 20px;
+    padding: 10px 15px;
+    background: transparent;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.backBtn:hover {
+    background: #2980b9;
+}
