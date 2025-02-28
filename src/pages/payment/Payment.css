@@ -101,9 +101,16 @@
   gap: 10px;
 }
 
+.card-field {
+  display: flex;
+  flex-direction: column;
+  width: 48%;
+}
+
 .card-details input,
 .bank-details input,
 .upi-details input,
+.netbanking-details input,
 select {
   width: 80%;
   max-width: 400px;
@@ -113,6 +120,16 @@ select {
   background: #333;
   color: white;
   border-radius: 5px;
+}
+
+/* Error messages */
+.error-message {
+  color: #ff5252;
+  font-size: 0.8rem;
+  margin: -5px auto 5px;
+  text-align: left;
+  width: 80%;
+  max-width: 400px;
 }
 
 /* Bank Account Verification */
@@ -233,6 +250,39 @@ select {
   font-size: 0.9rem;
 }
 
+/* UPI Styles */
+.upi-apps {
+  margin-top: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  border-radius: 5px;
+  width: 80%;
+  max-width: 400px;
+  margin: 15px auto;
+}
+
+.upi-options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.upi-app-btn {
+  padding: 8px 15px;
+  background: #444;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.upi-app-btn:hover {
+  background: #555;
+}
+
 /* Loading animation */
 .pay-now.processing {
   position: relative;
@@ -308,5 +358,14 @@ select {
   .methods button {
     flex: 1 0 40%;
     margin: 5px;
+  }
+
+  .card-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card-field {
+    width: 80%;
   }
 }
