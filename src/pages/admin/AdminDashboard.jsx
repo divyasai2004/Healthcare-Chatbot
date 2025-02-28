@@ -48,18 +48,22 @@ const AdminDashboard = () => {
         <h1 className="admin-title">Admin Dashboard</h1>
         <p>Welcome, Admin! Manage users, view reports, and control system settings.</p>
 
-        {/* Admin Panel Options */}
-        <div className="admin-options">
-          <button className="admin-btn" onClick={() => navigate("/admin/manage-users")}>
-            Manage Users
-          </button>
-          <button className="admin-btn" onClick={() => navigate("/admin/reports")}>
-            View Reports
-          </button>
-          <button className="admin-btn" onClick={() => navigate("/admin/settings")}>
-            System Settings
-          </button>
-        </div>
+       {/* Admin Panel Options */}
+<div className="admin-options">
+  <button className="admin-btn" onClick={() => navigate("/admin/manage-users")}>
+    Manage Users
+  </button>
+  <button className="admin-btn" onClick={() => navigate("/admin/reports")}>
+    View Reports
+  </button>
+  <button className="admin-btn" onClick={() => navigate("/admin/settings")}>
+    System Settings
+  </button>
+  <button className="admin-btn" onClick={() => navigate("/admin/payment-management")}>
+    Payment Management
+  </button>
+</div>
+
 
         {/* Logout Button */}
         <button className="logout-btn" onClick={() => navigate("/login")}>

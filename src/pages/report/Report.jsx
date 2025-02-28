@@ -1,9 +1,38 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import jsPDF from "jspdf";
+import autoTable from "jspdf-autotable"; // Import autoTable explicitly
 import styles from "./report.module.css"; // Import CSS Module
 
 const Report = () => {
   const navigate = useNavigate();
+
+  // Function to generate and download a PDF report
+  const downloadPDF = () => {
+    const doc = new jsPDF(); // Create new PDF document
+  
+    // Title
+    doc.text("Healthcare Chatbot Report", 20, 10);
+  
+    // Define table headers and data
+    const columns = ["Category", "Details"];
+    const data = [
+      ["Total Interactions", "50"],
+      ["Appointments Scheduled", "5"],
+      ["Health Tips Received", "15"],
+      ["Last Consultation", "Dr. Smith Tamboli (Feb 26, 2025)"]
+    ];
+  
+    // Use autoTable correctly
+    autoTable(doc, {
+      head: [columns],
+      body: data,
+      startY: 20
+    });
+  
+    // Save PDF
+    doc.save("Healthcare_Report.pdf");
+  };
 
   return (
     <div className={styles.container}>
@@ -18,7 +47,7 @@ const Report = () => {
           </p>
           <button 
             className={`${styles.button} ${styles.downloadButton}`} 
-            onClick={() => navigate("/download-report")}
+            onClick={downloadPDF}
           >
             Download Report (PDF)
           </button>

@@ -10,9 +10,9 @@ const Reports = () => {
     // Simulated Data Fetching
     setTimeout(() => {
       setUsageData([
-        { date: "2025-02-25", queries: 120, activeUsers: 45 },
-        { date: "2025-02-24", queries: 98, activeUsers: 38 },
-        { date: "2025-02-23", queries: 75, activeUsers: 30 },
+        { date: "2025-02-03", queries: 120, activeUsers: 45 },
+        { date: "2025-01-06", queries: 98, activeUsers: 38 },
+        { date: "2025-02-07", queries: 75, activeUsers: 30 },
       ]);
 
       setUserCount(250); // Total registered users

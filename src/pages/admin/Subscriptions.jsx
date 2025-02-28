@@ -5,8 +5,8 @@ const Subscriptions = () => {
   const [showConfirmation, setShowConfirmation] = useState(false);
 
   const subscriptions = [
-    { user: "Divya Ganti", plan: "Premium", status: "Active", expiry: "2024-05-10" },
-    { user: "Sujatha", plan: "Premium", status: "Active", expiry: "2024-01-15" },
+    { user: "Divya Ganti", plan: "Premium", status: "Active", expiry: "2025-05-10" },
+    { user: "Sujatha", plan: "Premium", status: "Active", expiry: "2025-08-15" },
   ];
 
   const handleUpgrade = (user) => {

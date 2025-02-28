@@ -74,7 +74,7 @@ const LandingPage = () => {
 
 
       <footer className="magical-footer">
-        <p>&copy; 2025 HealthBot. All rights reserved.</p>
+        <p>&copy; 2025 HealthBot Developed by Divyasai Ganti. All rights reserved.</p>
       </footer>
     </div>
   );
