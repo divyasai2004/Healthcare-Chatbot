@@ -1,130 +1,312 @@
 /* Container */
 .payment-container {
-    text-align: center;
-    background: linear-gradient(to bottom, #0a0a0a, #1a1a1a);
-    color: white;
-    padding: 50px 20px;
+  text-align: center;
+  background: linear-gradient(to bottom, #0a0a0a, #1a1a1a);
+  color: white;
+  padding: 50px 20px;
+  min-height: 100vh;
+}
+
+/* Title & Subtitle */
+.payment-title {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  background: linear-gradient(to right, #ff7e5f, #feb47b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.payment-subtitle {
+  font-size: 1.2rem;
+  color: #bbbbbb;
+  margin-bottom: 40px;
+}
+
+/* Plan Summary */
+.plan-summary {
+  background: #222;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px auto;
+  width: 80%;
+  max-width: 400px;
+}
+
+.plan-summary h2 {
+  color: #ff9800;
+}
+
+.price {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.plan-summary ul {
+  list-style: none;
+  padding: 0;
+}
+
+.plan-summary li {
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+/* Billing Information */
+.billing-section {
+  margin: 30px 0;
+}
+
+.billing-section input {
+  width: 80%;
+  max-width: 400px;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #444;
+  background: #333;
+  color: white;
+  border-radius: 5px;
+}
+
+/* Payment Method */
+.payment-method {
+  margin: 30px 0;
+}
+
+.methods button {
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  background: #444;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.methods button.active {
+  background: #ff9800;
+}
+
+.card-details,
+.bank-details,
+.upi-details,
+.netbanking-details {
+  margin-top: 20px;
+}
+
+.card-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.card-details input,
+.bank-details input,
+.upi-details input,
+select {
+  width: 80%;
+  max-width: 400px;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #444;
+  background: #333;
+  color: white;
+  border-radius: 5px;
+}
+
+/* Bank Account Verification */
+.verify-button {
+  margin-top: 15px;
+  padding: 12px 25px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  background: #2196f3;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s ease;
+  width: 80%;
+  max-width: 400px;
+}
+
+.verify-button:hover {
+  background: #1976d2;
+}
+
+.verify-button:disabled {
+  background: #555;
+  cursor: not-allowed;
+}
+
+.verification-message {
+  margin: 15px auto;
+  padding: 15px;
+  border-radius: 5px;
+  width: 80%;
+  max-width: 400px;
+  display: flex;
+  align-items: center;
+}
+
+.verification-message.success {
+  background: rgba(46, 125, 50, 0.3);
+  border: 1px solid #2e7d32;
+}
+
+.verification-message.error {
+  background: rgba(198, 40, 40, 0.3);
+  border: 1px solid #c62828;
+}
+
+.verification-message .icon {
+  font-size: 1.5rem;
+  margin-right: 10px;
+}
+
+.verification-message.success .icon {
+  color: #4caf50;
+}
+
+.verification-message.error .icon {
+  color: #f44336;
+}
+
+.hint-text {
+  font-size: 0.8rem;
+  color: #aaa;
+  margin: 0;
+  text-align: left;
+  width: 80%;
+  max-width: 400px;
+  margin: -5px auto 10px;
+}
+
+/* Pay Button */
+.pay-now {
+  margin-top: 20px;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 5px;
+  background: #ff9800;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.pay-now:hover {
+  background: #e68900;
+}
+
+.pay-now:disabled {
+  background: #555;
+  cursor: not-allowed;
+}
+
+/* Enhanced styles for net banking */
+.netbanking-details {
+  width: 80%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.netbanking-details select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #444;
+  background: #333;
+  color: white;
+  border-radius: 5px;
+}
+
+.bank-info {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  border-radius: 5px;
+  margin-top: 15px;
+}
+
+.bank-info p {
+  margin: 5px 0;
+  font-size: 0.9rem;
+}
+
+/* Loading animation */
+.pay-now.processing {
+  position: relative;
+  color: transparent;
+}
+
+.loader {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ffffff;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes rotation {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
   }
-  
-  /* Title & Subtitle */
+
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Payment confirmation */
+.payment-confirmation {
+  background: rgba(46, 125, 50, 0.3);
+  border: 1px solid #2e7d32;
+  padding: 20px;
+  border-radius: 5px;
+  margin-top: 20px;
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.payment-confirmation h2 {
+  color: #4caf50;
+  margin-bottom: 10px;
+}
+
+.payment-confirmation p {
+  margin: 5px 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
   .payment-title {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-    background: linear-gradient(to right, #ff7e5f, #feb47b);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  
-  .payment-subtitle {
-    font-size: 1.2rem;
-    color: #bbbbbb;
-    margin-bottom: 40px;
-  }
-  
-  /* Plan Summary */
-  .plan-summary {
-    background: #222;
-    padding: 20px;
-    border-radius: 10px;
-    margin: 20px auto;
-    width: 80%;
-    max-width: 400px;
-  }
-  
-  .plan-summary h2 {
-    color: #ff9800;
-  }
-  
-  .price {
     font-size: 2rem;
-    font-weight: bold;
-    margin: 10px 0;
   }
-  
-  .plan-summary ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .plan-summary li {
-    font-size: 1rem;
-    margin: 5px 0;
-  }
-  
-  /* Billing Information */
-  .billing-section {
-    margin: 30px 0;
-  }
-  
-  .billing-section input {
-    width: 80%;
-    max-width: 400px;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #444;
-    background: #333;
-    color: white;
-    border-radius: 5px;
-  }
-  
-  /* Payment Method */
-  .payment-method {
-    margin: 30px 0;
-  }
-  
-  .methods button {
-    padding: 10px 20px;
-    margin: 5px;
-    border: none;
-    border-radius: 5px;
-    background: #444;
-    color: white;
-    cursor: pointer;
-    transition: 0.3s ease;
-  }
-  
-  .methods button.active {
-    background: #ff9800;
-  }
-  
-  .card-details,
-  .upi-details,
-  .netbanking-details {
-    margin-top: 20px;
-  }
-  
-  .card-row {
+
+  .methods {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
   }
-  
-  .card-details input,
-  .upi-details input,
-  .netbanking-details select {
-    width: 80%;
-    max-width: 400px;
-    padding: 10px;
-    border: 1px solid #444;
-    background: #333;
-    color: white;
-    border-radius: 5px;
+
+  .methods button {
+    flex: 1 0 40%;
+    margin: 5px;
   }
-  
-  /* Pay Button */
-  .pay-now {
-    margin-top: 20px;
-    padding: 15px 30px;
-    font-size: 1.2rem;
-    border: none;
-    border-radius: 5px;
-    background: #ff9800;
-    color: white;
-    cursor: pointer;
-    transition: 0.3s ease;
-  }
-  
-  .pay-now:hover {
-    background: #e68900;
-  }
-  
+}
