@@ -366,7 +366,7 @@ const Payment = () => {
                 <input
                   id="customerId"
                   type="text"
-                  placeholder="Customer or User ID"
+                  placeholder="Customer or User ID (e.g. CUST12345)"
                   value={netbankingDetails.customerId}
                   onChange={(e) => setNetbankingDetails({ ...netbankingDetails, customerId: e.target.value })}
                   required
@@ -390,7 +390,7 @@ const Payment = () => {
           )}
         </section>
 
-        <button type="submit" className={`pay-now ${isProcessing ? "processing" : ""}`} disabled={isProcessing || !isPaymentValid()}>
+        <button type="submit" className={`pay-now ${isProcessing ? "processing" : ""}`}>
           {isProcessing ? <div className="loader"></div> : "Proceed to Pay"}
         </button>
       </form>

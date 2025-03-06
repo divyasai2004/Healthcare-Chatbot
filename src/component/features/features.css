@@ -10,18 +10,10 @@
     font-weight: lighter;
     font: sans-serif;
     
-    
 }
 
 .feature1{
     background-color: rgb(37, 37, 36);
-    /* filter: drop-shadow(5px 5px 10px rgba(52, 152, 219, 0.4)) 
-          drop-shadow(-5px -5px 10px rgba(233, 30, 99, 0.4)); */
-    
-    
-    /* box-shadow: 
-    0 0 15px #3498db ; */
-    
     border-radius: 5%;
     width: 180px;
     height: 180px;
@@ -30,10 +22,6 @@
 
 .feature2{
     background-color: rgb(37, 37, 36);
-
-    /* filter: drop-shadow(5px 5px 10px rgba(52, 152, 219, 0.4)) 
-          drop-shadow(-5px -5px 10px rgba(233, 30, 99, 0.4)); */
- 
     border-radius: 5%;
     width: 180px;
     height: 180px;
@@ -42,8 +30,6 @@
 
 .feature3{
     background-color: rgb(37, 37, 36);
-    /* filter: drop-shadow(5px 5px 10px rgba(52, 152, 219, 0.4)) 
-          drop-shadow(-5px -5px 10px rgba(233, 30, 99, 0.4)); */
     border-radius: 5%;
     width: 180px;
     height: 180px;
@@ -51,11 +37,7 @@
 }
 
 .feature4{
-    background-color: rgb(37, 37, 36);
-    /* filter: drop-shadow(5px 5px 10px rgba(52, 152, 219, 0.4)) 
-          drop-shadow(-5px -5px 10px rgba(233, 30, 99, 0.4)); */
-      /* Blue shadow */
-   
+    background-color: rgb(37, 37, 36);  
     border-radius: 5%;
     width: 180px;
     height: 180px;

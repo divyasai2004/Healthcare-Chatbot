@@ -2,8 +2,8 @@ import React, { useState } from "react";
 
 const Refunds = () => {
   const [refundRequests, setRefundRequests] = useState([
-    { id: "#REF56789", user: "Divya Ganti", amount: "$40", reason: "Duplicate payment" },
-    { id: "#REF11223", user: "Jasmin", amount: "$25", reason: "Service not received" },
+    { id: "#REF56789", user: "Divya Ganti", amount: "₹3,495.40", reason: "Duplicate payment" },
+    { id: "#REF11223", user: "Jasmin", amount: "₹2,184.63", reason: "Service not received" },
   ]);
 
   const handleAction = (id, action) => {

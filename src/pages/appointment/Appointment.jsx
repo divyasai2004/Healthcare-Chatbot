@@ -30,6 +30,7 @@ const Appointment = () => {
 
     return (
         <div className={styles.appointment}>
+            <h1 className={styles.title}>Book an Appointment</h1>
             <div className={styles.doctorbox}>
                 <h1 className={styles.fields}>Doctor: </h1>
                 <input className={styles.doctor} type="text" value={doctor} readOnly />
