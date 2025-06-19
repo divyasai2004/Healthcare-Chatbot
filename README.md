@@ -3,8 +3,6 @@
   <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=24&pause=1000&center=true&vCenter=true&width=435&lines=Welcome+to+Healthcare+Chatbot!;AI-powered+24%2F7+Health+Support;Chat+%7C+Track+%7C+Relax" alt="Typing SVG" />
 </p>
 
-<h1 align="center">🩺 Healthcare Chatbot 💬</h1>
-
 <p align="center">
   A smart, AI-powered chatbot system designed to assist users with healthcare queries, symptom analysis, appointment scheduling, report generation, and more.
 </p>
